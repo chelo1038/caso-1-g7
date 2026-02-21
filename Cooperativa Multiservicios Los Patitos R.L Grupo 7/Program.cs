@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context") ?? throw new InvalidOperationException("Connection string 'Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

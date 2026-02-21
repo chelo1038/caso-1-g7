@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context"
+    }
+  }
+}
