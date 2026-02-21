@@ -12,9 +12,9 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
 {
     public class ServiciosController : Controller
     {
-        private readonly Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context _context;
+        private readonly AppDbContext _context;
 
-        public ServiciosController(Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context context)
+        public ServiciosController(AppDbContext context)
         {
             _context = context;
         }
@@ -22,7 +22,7 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
         // GET: Servicios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Servicio.ToListAsync());
+            return View(await _context.Servicios.ToListAsync());
         }
 
         // GET: Servicios/Details/5
@@ -33,7 +33,7 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
                 return NotFound();
             }
 
-            var servicio = await _context.Servicio
+            var servicio = await _context.Servicios
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (servicio == null)
             {
@@ -54,7 +54,7 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Monto,IVA,AreaServicio,Encargado,Sucursal,FechaDeRegistro,FechaDeModificacion,Estado")] Servicio servicio)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Monto,IVA,AreaServicio,Encargado,Sucursal,FechaDeRegistro,FechaDeModificacion,Estado")] Servicios servicio)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
                 return NotFound();
             }
 
-            var servicio = await _context.Servicio.FindAsync(id);
+            var servicio = await _context.Servicios.FindAsync(id);
             if (servicio == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Monto,IVA,AreaServicio,Encargado,Sucursal,FechaDeRegistro,FechaDeModificacion,Estado")] Servicio servicio)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Monto,IVA,AreaServicio,Encargado,Sucursal,FechaDeRegistro,FechaDeModificacion,Estado")] Servicios servicio)
         {
             if (id != servicio.Id)
             {
@@ -124,7 +124,7 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
                 return NotFound();
             }
 
-            var servicio = await _context.Servicio
+            var servicio = await _context.Servicios
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (servicio == null)
             {
@@ -139,10 +139,10 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var servicio = await _context.Servicio.FindAsync(id);
+            var servicio = await _context.Servicios.FindAsync(id);
             if (servicio != null)
             {
-                _context.Servicio.Remove(servicio);
+                _context.Servicios.Remove(servicio);
             }
 
             await _context.SaveChangesAsync();
@@ -151,7 +151,7 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
 
         private bool ServicioExists(int id)
         {
-            return _context.Servicio.Any(e => e.Id == id);
+            return _context.Servicios.Any(e => e.Id == id);
         }
     }
 }

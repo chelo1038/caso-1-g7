@@ -1,12 +1,29 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Data;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context") ?? throw new InvalidOperationException("Connection string 'Cooperativa_Multiservicios_Los_Patitos_RL_Grupo_7Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("MysqlConnection"),
+        ServerVersion.AutoDetect(
+            builder.Configuration.GetConnectionString("MysqlConnection")
+        )
+    );
+});
+
+
+
+//Repositorio
+//CapaBussine
+
 
 var app = builder.Build();
 
@@ -19,16 +36,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
