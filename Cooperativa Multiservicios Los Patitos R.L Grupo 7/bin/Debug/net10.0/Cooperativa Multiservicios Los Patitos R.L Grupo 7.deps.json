@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Cooperativa Multiservicios Los Patitos R.L Grupo 7/1.0.0": {
+        "runtime": {
+          "Cooperativa Multiservicios Los Patitos R.L Grupo 7.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Cooperativa Multiservicios Los Patitos R.L Grupo 7/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
