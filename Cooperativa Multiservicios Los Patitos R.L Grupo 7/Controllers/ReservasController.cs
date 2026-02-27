@@ -1,5 +1,4 @@
-﻿using Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Models;
-using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Bussines;
+﻿using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Bussines;
 using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,24 +6,24 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Controllers
 {
     public class ReservasController : Controller
     {
-        private readonly IReservaService _reservaService;
-        private readonly IServicioService _servicioService;
+        private readonly ReservasBusiness _reservasBusiness;
+        private readonly ServiciosBusiness _serviciosBusiness;
 
-        public ReservasController(IReservaService reservaService, IServicioService servicioService)
+        public ReservasController(ReservasBusiness reservasBusiness, ServiciosBusiness serviciosBusiness)
         {
-            _reservaService = reservaService;
-            _servicioService = servicioService;
+            _reservasBusiness = reservasBusiness;
+            _serviciosBusiness = serviciosBusiness;
         }
 
         public IActionResult ServiciosDisponibles()
         {
-            var servicios = _servicioService.GetActivos();
+            var servicios = _serviciosBusiness.GetServiciosActivos();
             return View(servicios);
         }
 
         public IActionResult Create(int idServicio)
         {
-            var servicio = _servicioService.GetById(idServicio);
+            var servicio = _serviciosBusiness.GetServicioById(idServicio);
             if (servicio == null || !servicio.Estado)
                 return NotFound();
 
@@ -38,13 +37,13 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            _reservaService.Crear(model);
+            _reservasBusiness.AddReserva(model);
             return RedirectToAction("Confirmacion");
         }
 
         public IActionResult Buscar(int idReserva)
         {
-            var reserva = _reservaService.GetById(idReserva);
+            var reserva = _reservasBusiness.GetReservaById(idReserva);
 
             if (reserva == null)
             {

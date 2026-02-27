@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Models.Servicios>
+﻿@model IEnumerable<Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Models.Servicios>
 
 <h2 class="mt-4">Servicios Disponibles</h2>
 
@@ -19,9 +19,9 @@
                 <td>@item.Descripcion</td>
                 <td>₡ @item.Monto</td>
                 <td>
-                    <a asp-action="Crear" 
-                       asp-route-id="@item.Id" 
-                       class="btn btn-success btn-sm">
+                    <a asp-action="Create"
+                           asp-route-idServicio="@item.Id"
+                           class="btn btn-success btn-sm">
                         Reservar
                     </a>
                 </td>

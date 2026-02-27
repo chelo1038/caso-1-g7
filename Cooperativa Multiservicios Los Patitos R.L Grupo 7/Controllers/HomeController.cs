@@ -1,8 +1,8 @@
-using Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Models;
-using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Controllers
+namespace Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Controllers
 {
     public class HomeController : Controller
     {

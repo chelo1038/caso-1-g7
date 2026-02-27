@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Data;
-//uno de los errores
-//using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Data;
+﻿using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Data;
 using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Models;
 
 namespace Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Repositories
@@ -17,17 +13,17 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Repositories
         }
 
         public IEnumerable<Reservas> GetAll() =>
-            _context.Reservas.ToList();
+            _context.Reservas_G7.ToList();
 
         public IEnumerable<Reservas> GetByServicio(int idServicio) =>
-            _context.Reservas.Where(r => r.IdServicio == idServicio).ToList();
+            _context.Reservas_G7.Where(r => r.IdServicio == idServicio).ToList();
 
         public Reservas GetById(int id) =>
-            _context.Reservas.FirstOrDefault(r => r.Id == id);
+            _context.Reservas_G7.FirstOrDefault(r => r.Id == id);
 
         public void Add(Reservas reserva)
         {
-            _context.Reservas.Add(reserva);
+            _context.Reservas_G7.Add(reserva);
             _context.SaveChanges();
         }
     }
