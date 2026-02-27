@@ -2,7 +2,8 @@
 using System.Linq;
 using Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Data;
 using Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Models;
-using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Data;
+//error
+//using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Data;
 using Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Models;
 
 namespace Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Repositories
