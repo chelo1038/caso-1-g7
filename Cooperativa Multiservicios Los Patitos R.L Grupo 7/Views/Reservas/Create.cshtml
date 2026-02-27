@@ -1,0 +1,48 @@
+﻿@model Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Models.Reservas
+
+@{
+    ViewData["Title"] = "Crear Reserva";
+    var servicio = ViewBag.Servicio as Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Models.Servicios;
+}
+
+<h2>Crear Reserva</h2>
+
+@if (servicio != null)
+{
+    <h4>Servicio: @servicio.Nombre</h4>
+    <p>Monto: @servicio.Monto</p>
+}
+
+<form asp-action="Create" method="post">
+
+    <input type="hidden" asp-for="IdServicio" value="@servicio.Id" />
+
+    <div class="form-group">
+        <label>Nombre</label>
+        <input asp-for="NombreDelAsociado" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Identificación</label>
+        <input asp-for="Identificacion" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Teléfono</label>
+        <input asp-for="Telefono" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Correo</label>
+        <input asp-for="Correo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Fecha del Servicio</label>
+        <input asp-for="FechaDelServicio" type="date" class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-success">Confirmar Reserva</button>
+</form>

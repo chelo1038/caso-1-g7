@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Models.Reservas>
+
+<h2>Listado de Reservas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Servicio</th>
+            <th>Monto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.NombreDelAsociado</td>
+                <td>@item.IdServicio</td>
+                <td>@item.MontoTotal</td>
+            </tr>
+        }
+    </tbody>
+</table>

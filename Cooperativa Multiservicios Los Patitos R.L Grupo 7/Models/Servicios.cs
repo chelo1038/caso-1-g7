@@ -37,7 +37,9 @@ namespace Cooperativa_Multiservicios_Los_Patitos_R.L_Grupo_7.Models
             public DateTime? FechaDeModificacion { get; set; }
 
             public bool Estado { get; set; } // 1 Activo | 0 Inactivo
-        }
+        //prueba
+        public ICollection<Cooperativa_Multiservicios_Los_Patitos_R_L_Grupo_7.Models.Reservas> Reservas { get; set; }
+    }
     }
 
 
